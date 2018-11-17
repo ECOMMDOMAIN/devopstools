@@ -1,0 +1,15 @@
+---
+- name: Download and execute the Script
+  hosts: localhost
+  sudo: true
+  tasks:
+     - name: Download the script
+       unarchive:
+         src: https://github.com/Yphanikumar5/devopstools/archive/alltools.zip
+         dest: /opt
+         remote_src: yes
+- hosts: 10.10.1.71
+  sudo: true
+  tasks:
+    - name: Execute the Script
+    - script: /opt/devopstools-alltools/installall.sh >> /home/ansible/output.log
