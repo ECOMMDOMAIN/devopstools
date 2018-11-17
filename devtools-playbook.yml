@@ -12,4 +12,4 @@
   sudo: true
   tasks:
     - name: Execute the Script
-    - script: /opt/devopstools-alltools/installall.sh >> /home/ansible/output.log
+      script: /opt/devopstools-alltools/installall.sh >> /home/ansible/output.log
