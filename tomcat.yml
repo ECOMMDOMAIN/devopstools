@@ -1,0 +1,10 @@
+---
+- name: Download and install apache-tomcat
+  hosts: all
+  sudo: true
+  tasks:
+     - name: Download apache-tomcat
+       unarchive:
+         src: http://mirrors.wuchna.com/apachemirror/tomcat/tomcat-9/v9.0.13/bin/apache-tomcat-9.0.13.zip
+         dest: /opt
+         remote_src: yes
