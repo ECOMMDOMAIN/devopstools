@@ -1,0 +1,10 @@
+---
+- name: Download and install wildfly
+  hosts: all
+  sudo: true
+  tasks:
+     - name: Download wildfly
+       unarchive:
+         src: http://download.jboss.org/wildfly/14.0.1.Final/wildfly-14.0.1.Final.zip
+         dest: /opt
+         remote_src: yes
