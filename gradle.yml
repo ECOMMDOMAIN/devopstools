@@ -1,0 +1,16 @@
+---
+- name: Download and install Gradle
+  hosts: all
+  sudo: true
+  tasks:
+     - name: Download Gradle
+       unarchive:
+         src: https://services.gradle.org/distributions/gradle-4.10.2-all.zip
+         dest: /opt
+         remote_src: yes
+     - name: set gradle path
+       blockinfile:
+         path: /etc/profile
+         block: |
+           export GRADLE_HOME=/opt/gradle-4.10.2
+           export PATH=$PATH:$GRADLE_HOME/bin
