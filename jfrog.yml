@@ -1,0 +1,10 @@
+---
+- name: Download and install Jfrog
+  hosts: all
+  sudo: true
+  tasks:
+     - name: Download Jfrog
+       unarchive:
+         src: https://github.com/Yphanikumar5/jfrog/archive/jfrog.zip
+         dest: /opt
+         remote_src: yes
