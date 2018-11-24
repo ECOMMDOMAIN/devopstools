@@ -1,0 +1,16 @@
+---
+- name: Download and install Maven
+  hosts: all
+  sudo: true
+  tasks:
+     - name: Download Maven
+       unarchive:
+         src: http://mirrors.estointernet.in/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.zip
+         dest: /opt
+         remote_src: yes
+     - name: set Maven path
+       blockinfile:
+         path: /etc/profile
+         block: |
+           export M2_HOME=/opt/apache-maven-3.6.0
+           export PATH=$PATH:$M2_HOME/bin
