@@ -1,0 +1,10 @@
+---
+- name: Download and install SonarQube
+  hosts: all
+  sudo: true
+  tasks:
+     - name: Download SonarQube
+       unarchive:
+         src: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.4.zip
+         dest: /opt
+         remote_src: yes
