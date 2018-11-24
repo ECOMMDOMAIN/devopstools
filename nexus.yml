@@ -1,0 +1,10 @@
+---
+- name: Download and install Nexus
+  hosts: all
+  sudo: true
+  tasks:
+     - name: Download Nexus
+       unarchive:
+         src: https://github.com/Yphanikumar5/nexus/archive/nexus.zip
+         dest: /opt
+         remote_src: yes
