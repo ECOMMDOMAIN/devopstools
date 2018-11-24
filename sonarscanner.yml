@@ -1,0 +1,16 @@
+---
+- name: Download and install Sonar Scanner
+  hosts: all
+  sudo: true
+  tasks:
+     - name: Download Scanner
+       unarchive:
+         src: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
+         dest: /opt
+         remote_src: yes
+     - name: set Sonar Scanner path
+       blockinfile:
+         path: /etc/profile
+         block: |
+           export SONAR_SCANNER=/opt/sonar-scanner-3.2.0.1227-linux
+           export PATH=$PATH:$SONAR_SCANNER/bin
