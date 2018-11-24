@@ -1,0 +1,16 @@
+---
+- name: Download and install ant
+  hosts: all
+  sudo: true
+  tasks:
+     - name: Download ant
+       unarchive:
+         src: http://mirrors.estointernet.in/apache//ant/binaries/apache-ant-1.10.5-bin.zip
+         dest: /opt
+         remote_src: yes
+     - name: set ant path
+       blockinfile:
+         path: /etc/profile
+         block: |
+           export ANT_HOME=/opt/apache-ant-1.10.5
+           export PATH=$PATH:$ANT_HOME/bin
