@@ -1,4 +1,4 @@
-- hosts: app_servers
+- hosts: all
   sudo: true
   tasks:
   - name: Install list of packages
